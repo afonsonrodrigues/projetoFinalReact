@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projeto Final</title>
+        <!-- Resolvemos usar o Bootstrap e também colomos um CSS com algumas personalizações. -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/final.css" />
+    </head>
+    <body>
+        <!-- Colomos uma NavBar para melhorar o layout. -->
+        <header>
+            <nav class="navbar navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand">GRUPO 5</a>
+                    <form class="d-flex">
+                        <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Digite aqui..."
+                            aria-label="Search"
+                        />
+                        <button class="btn btn-primary" type="submit">
+                            BUSCAR
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <!-- Inputs para os produtos -->
+        <!-- Colocamos as duas tabelas em Card's para ter um diferencial e achamos melhor.-->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-12 col-sm-12">
+                    <div class="card margemCard">
+                        <h3 class="card-header text-danger">ITEM DO PEDIDO</h3>
+                        <div class="card-body">
+                            <form id="cadastro">
+                                <div>
+                                    <label>Produto</label>
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="Digite aqui..."
+                                        class="form-control"
+                                        id="nomeProduto"
+                                    />
+                                </div>
+                                <div>
+                                    <label>Quantidade</label>
+                                    <input
+                                        required
+                                        min="1"
+                                        type="number"
+                                        placeholder="Digite aqui..."
+                                        class="form-control"
+                                        id="quantidade"
+                                    />
+                                </div>
+                                <div>
+                                    <label>Valor</label>
+                                    <input
+                                        required
+                                        type="number"
+                                        name="price"
+                                        min="1"
+                                        step=".01"
+                                        placeholder="Digite aqui..."
+                                        class="form-control"
+                                        id="valor"
+                                    />
+                                </div>
+                                <div>
+                                    <label>Categoria</label>
+                                    <select class="form-control">
+                                        <option value="Livros">Livros</option>
+                                        <option value="DVDs">DVDs</option>
+                                        <option value="Papelaria">
+                                            Papelaria
+                                        </option>
+                                    </select>
+                                </div>
+                                <button
+                                    class="btn btn-primary col-12 margemBotao"
+                                >
+                                    Salvar
+                                </button>
+                                <button
+                                    class="btn btn-danger col-12 margemBotao"
+                                    id="btnRemoverAll"
+                                    type="button"
+                                >
+                                    Excluir todos os produtos
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Mensagem para avisar ao usuário que o produto foi adicionado com sucesso. -->
+                    <div id="alertaSucesso" class="py-1 d-none">
+                        <div class="row no-gutters">
+                            <div class="col-lg-12 col-md-12">
+                                <div
+                                    class="alert alert-info fade show"
+                                    role="alert"
+                                >
+                                    <h4 class="alert-heading">Parabéns</h4>
+                                    <p>Produto adicionado com sucesso!!!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tabela com os produtos, também em Card. -->
+                <div class="col-12 col-md-6 col-12 col-sm-12">
+                    <div class="card d-none margemCard" id="cardPedido">
+                        <h3 class="card-header bg-primary bg-gradient">
+                            Pedido
+                        </h3>
+                        <div class="card-body table-responsive">
+                            <table
+                                class="
+                                    table
+                                    table-striped
+                                    table-hover
+                                    table-bordered
+                                    table-sm
+                                "
+                            >
+                                <thead>
+                                    <tr>
+                                        <th>Nome do Produto</th>
+                                        <th>Quantidade</th>
+                                        <th>Categoria</th>
+                                        <th>Valor</th>
+                                        <th>Total</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button
+                        id="botaoFinalizar"
+                        class="btn btn-primary col-12 margemBotao d-none"
+                    >
+                        <!-- Botão para exibir o valor total do pedido. -->
+                        Finalizar Pedido
+                    </button>
+                    <div id="alertaTotal" class="py-1 d-none">
+                        <div class="row no-gutters">
+                            <div class="col-lg-12 col-md-12">
+                                <div
+                                    id="saidaFinalizacao"
+                                    class="alert alert-success fade show"
+                                    role="alert"
+                                >
+                                    <!-- Criado para receber o valor da total do pedido. -->
+                                    <h4 id="totalH4"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Rodapé -->
+        <div class="fixed-bottom">
+            <footer class="text-center">
+                <p class="rodape">Copyright 2021 &copy;</p>
+            </footer>
+        </div>
+        <script src="js/final.js"></script>
+    </body>
+</html>
